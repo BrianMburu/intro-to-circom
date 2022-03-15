@@ -65,7 +65,7 @@ snarkjs zkey export verificationkey circuit_0001.zkey verification_key.json #unc
 Once the witness is computed and the trusted setup is already executed, 
 we can generate a zk-proof associated to the circuit and the witness:
 """/
-#snarkjs groth16 prove circuit_0001.zkey witness.wtns proof.json public.json #uncomment
+snarkjs groth16 prove circuit_0001.zkey witness.wtns proof.json public.json #uncomment
 /"""
 This above command generates a Groth16 proof and outputs two files:
     proof.json: it contains the proof.
@@ -74,14 +74,14 @@ This above command generates a Groth16 proof and outputs two files:
 
 #Verifying a Proof
 #To verify the proof, execute the following 
-#snarkjs groth16 verify verification_key.json public.json proof.json #uncomment
+snarkjs groth16 verify verification_key.json public.json proof.json #uncomment
 /"""
 Note: A valid proof not only proves that we know a set of signals that satisfy the circuit, but also that the public inputs and 
 outputs that we use match the ones described in the public.json file.
 """/
 #Optional
 #Verifying from a Smart Contract
-​#Generating a Solidity verifier that allows verifying proofs on Ethereum blockchain.
+​Generating a Solidity verifier that allows verifying proofs on Ethereum blockchain.
 
 #snarkjs zkey export solidityverifier circuit_0001.zkey verifier.sol #uncomment
 /"""This command takes validation key multiplier2_0001.zkey and outputs Solidity code in a file named verifier.sol. 
@@ -89,7 +89,7 @@ You can take the code from this file and cut and paste it in Remix. You will see
 contracts: Pairing and Verifier. You only need to deploy the Verifier contract.
 """/
 #Genarating the parameters of the call
-#snarkjs generatecall #uncomment
+snarkjs generatecall #uncomment
 shopt -u extglob
 
 
